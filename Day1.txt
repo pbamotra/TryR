@@ -1,0 +1,199 @@
+character
+numeric (real numbers)
+integer
+complex
+logical(T/F)
+
+vector ~ arrays
+list - different data types possible
+
+By default numeric 
+put 'L' and get integer
+
+1/0 - Inf
+NaN - Not a number
+
+# - comments
+
+<- assignment operator
+-> assignment operator
+
+print()
+
+x <- 5
+Output: [1]	5  #Auto printing
+
+: - create sequence
+
+c() - concatenate - creates vector
+
+vector("numeric", nLength)
+
+is.[atomic_class] - is.vector
+
+coercion - 0:6
+as.atomic_class
+
+Wrong coercion - character to numeric
+
+Matrices
+vectors with dimension attributes
+
+m <- matrix(nrow = 2, ncol = 3)  # matrix is constructed column-wise
+dim(m)
+attributes(m) - $dim
+
+m <- 1:10
+dim(m) <- c(2,5)
+
+cbind(x,y)
+rbind(x,y)
+
+
+List
+x <- list(1, "a", TRUE, 1+4i)  - each element is actually a vector
+
+Factors - ordered / unordered
+used to represent categorical data
+think like an integer vector with each integer having a label
+Eg: Male, Female rather than 0, 1
+
+x <- factor(c("male", "female", "male", "male"))
+$levels, $class
+levels()
+table(x) - to count various levels
+unclass(x) - remove factor class  - convert to integer - attr(y, "levels")
+
+By default factors are ordered by alphabetical ordering
+x <- factor(c("male", "female", "male", "male"), levels = c("yes", "no"))
+
+is.na() - missing values
+is.nan()
+NA has class there are character NA, integer NA
+NaN is NA but not vice-versa
+
+
+x <- c(1, 2, NaN, NA, 4)
+
+
+Data frames - store tabular data
+Unlike matrices store these can store heterogeneous data
+Special attribute row.names
+created - read.table() / read.csv()
+convert to matrix by calling data.matrix()
+
+x <- data.frame(foo = 1:4, bar = c(T,T,F,T))
+row.names
+nrow(), ncol()
+
+To name objects - names()
+x <- 1:3
+names(x) <- c("foo", "bar", "norf")
+
+lists can have names too
+x <- list(a = 1, b = 2, c = 3)
+
+Naming matrices' row and col
+dimnames(matrix_name) <- list(c("a","b"), c("c", "d"))
+
+Subsetting
+[] - gives same object back
+[[]] - extract data out of list or data frame - to extract single element
+$ ~ [[]]
+
+x <- c("a", "b", "c", "d")
+x[1] - indexing starts from 1
+x[1:4] - inclusive of both start and end
+x[x > "a"]
+
+x <- matrix(1:6, 2, 3)
+x[row, col] - row or col can be missing - returns vector of length 1
+x[row, col, drop = FALSE] - to get 1 x 1 matrix instead - row or col can be missing
+
+x <- list(foo = 1:4, bar = 0.6)
+x[1] vs x[[1]] vs x$foo vs x[["foo"]] vs x["foo"]
+x[c(1,2)]
+
+[[]] vs $ - computed indices 
+x <- list(foo = 1:4, bar = 0.6)
+y <- "foo"
+
+x[[y]] 
+x$y is wrong
+
+x <- list(a = list(1,2,3), b = list(4,5,6))
+x[[c(1,3)]]  # gives 3
+x[[1]][[3]]
+
+Partial matching
+[[]] and $ supported
+
+x <- list(boo = 1:5)
+x$b # prints 1 2 3 4 5
+x[["b", exact = FALSE]]
+
+Cleaning data of NAs
+
+x <- c(1, 2, NA, 3, NA)
+bad <- is.na(x)
+x[!bad]
+
+complete.cases(x [,y]) - provided x and y have same length
+na.omit()
+
+Vectorized operations
+x <- 1:4; y <- 6:9
+x + y - their lengths should be multiples
+
+matrix multiplication
+x %*% y
+
+R/W
+read.table(file, header = FALSE, sep = "", quote = "\"'",
+           dec = ".", row.names, col.names,
+           as.is = !stringsAsFactors,
+           na.strings = "NA", colClasses = NA, nrows = -1,
+           skip = 0, check.names = TRUE, fill = !blank.lines.skip,
+           strip.white = FALSE, blank.lines.skip = TRUE,
+           comment.char = "#",
+           allowEscapes = FALSE, flush = FALSE,
+           stringsAsFactors = default.stringsAsFactors(),
+           fileEncoding = "", encoding = "unknown", text)
+
+ read large datasets
+ initial <- read.table("filename.txt", nrows = 100)
+ classes <- sapply(inital, class)
+ fullRead <- read.table("filename.txt", colClasses=classes)
+
+ dput - writes r code and can be reconstructed using dget - only on single R object
+ dump(c("obj", "obj"), file="sample.R") - source("sample.R") to read
+
+ file/ gzfile/ bzfile/ url
+ readLines(connection, nLines)
+ writeLines(characterVector, connection)
+
+ rm(list=ls())
+
+ str/ summary
+
+
+if, else, for, while, repeat, break, next, return
+if(<Condition>) {
+	
+}
+
+y <- if(x>10) {
+	10
+} else {
+	0
+}
+
+for(i in 1:10) {
+	print (i)
+}
+
+to access indices use seq_along(x)
+to access matrices nrow, ncol use seq_len()
+
+repeat { break somewhere }
+
