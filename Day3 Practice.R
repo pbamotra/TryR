@@ -7,6 +7,7 @@ print(1:5 + 2:6)
 print(1:10 %% 3)
 print(1:10 %/% 3)
 
+print(sample(c("Pankesh", "Abhishek"), 1))
 print(factorial(5))
 
 print(isTRUE(all.equal(sqrt(2)^2, 3)))  # without isTRUE it returns "Mean relative difference: 0.5"
