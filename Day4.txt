@@ -1,0 +1,83 @@
+create list
+x <- list(1:5, matrix(1:24, by)row=T, nrow=6)
+
+names(x) <- c("Sequence", "Matrix")
+
+is.atomic(list())	#false
+is.recursive(list())		#true
+
+length(x)
+
+ data.frame(
+      x = letters[1:5],
+      y = y,
+      z = runif(5) > 0.5,
+      row.names = c("Jackie", "Tito", "Jermaine", "Marlon", "Michael")
+)
+
+rownames(a_data_frame)
+    ## [1] "1" "2" "3" "4" "5"
+    colnames(a_data_frame)
+    ## [1] "x" "y" "z"
+    dimnames(a_data_frame)
+    ## [[1]]
+    ## [1] "1" "2" "3" "4" "5"
+    ##
+    ## [[2]]
+    ## [1] "x" "y" "z"
+    nrow(a_data_frame)
+    ## [1] 5
+    ncol(a_data_frame)
+    ## [1] 3
+    dim(a_data_frame)
+    ## [1] 5 3
+
+data.frame(
+"A column" = letters[1:5], "!@#$%^&*()" = rnorm(5),
+"..." = runif(5) > 0.5, check.names = FALSE
+)
+
+t(x)  # to transpose a data.frame
+
+merged <- merge(emp, depat, by = "dept", all=T)
+
+colSums
+rowSums
+colMeans
+rowMeans
+
+an_environment <- new.env()
+assign(
+      "moonday",
+      weekdays(as.Date("1969/07/20")),
+      an_environment
+)
+
+nested_environment <- new.env(parent = an_environment)
+exists("pythag", nested_environment, inherits = FALSE)
+
+> hypotenuse <- function(x, y) {
++ sqrt(x^2 + y^2)
++ }
+> formals(hypotenuse)
+$x
+
+
+$y
+
+
+> formalArgs(hypotenuse)
+[1] "x" "y"
+> args(hypotenuse)
+function (x, y) 
+NULL
+
+body(function)
+
+to store as string deparse(body(function))
+
+do.call(hypotenuse, list(x = 3, y = 4)) #same as hypotenuse(3, 4)
+
+
+
+

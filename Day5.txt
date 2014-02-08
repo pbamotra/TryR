@@ -1,0 +1,118 @@
+paste(x, "& your family", sep=" welcomes you ", collapse=" + ")
+
+toString(x, width=40)
+
+cat(c("Pankesh "), "Bamotra")
+
+> x <- c("I", "saw", "a", "saw", "that", "could", "out")
+> noquote(x)
+#output -  I     saw   a     saw   that  could out 
+
+> formatC(powers, digits = 3, width = 10, format = "e", flag = "+")
+#output - "+2.718e+00" "+7.389e+00" "+2.009e+01"
+
+> sprintf("%s - %d - %e - %.3f", "Pankesh", 1 , 1.2322, 12.90001)
+#output - "Pankesh - 1 - 1.232200e+00 - 12.900"
+
+prettyNum(c(1e10, 1e-20), big.mark = ",", small.mark = " ", preserve.width = "individual", scientific = FALSE)
+
+cat("foo\"bar", fill = TRUE)
+
+toupper() / tolower()
+
+woodchuck <- c(
+      "How much wood would a woodchuck chuck",
+      "If a woodchuck could chuck wood?",
+      "He would chuck, he would, as much as he could",
+      "And chuck as much wood as a woodchuck would",
+      "If a woodchuck could chuck wood."
+)
+
+substring(woodchuck, 1:6, 10)
+#output -  "How much w" "f a woodc"  " would c"   " chuck "    " woodc"     "uch w" 
+
+strsplit(woodchuck, " ", fixed = TRUE)   # fixed is used when split string is NOT a regular expression
+
+
+file.path("c:", "Program Files", "R", "R-devel")
+
+R.home()/ version/ Version()/ R.version.string
+
+> path.expand("~")
+#output -  "/Users/pbamotra"
+
+ file_name <- "C:/Program Files/R/R-devel/bin/x64/RGui.exe"
+    basename(file_name)
+    ## [1] "RGui.exe"
+    dirname(file_name)
+    ## [1] "C:/Program Files/R/R-devel/bin/x64"
+
+ factor(c("Male", "Female"))
+ nlevels(x)
+ levels(x)
+
+ factor(gender_char, levels = c("male", "female"))
+ relevel(gender_fac, "male")
+
+unique(getting_to_work$mode)
+
+> happy_choices <- c("depressed", "grumpy", "so-so", "cheery", "ecstatic")
+> happy_values <- sample(happy_choices, 10000,replace = TRUE)
+> happy_fac <- factor(happy_values, happy_choices)
+> head(happy_fac)
+[1] ecstatic  ecstatic  so-so     so-so     ecstatic  depressed
+Levels: depressed grumpy so-so cheery ecstatic
+> happy_ord <- ordered(happy_values, happy_choices)
+> head(happy_ord)
+[1] ecstatic  ecstatic  so-so     so-so     ecstatic  depressed
+Levels: depressed < grumpy < so-so < cheery < ecstatic
+
+
+ages <- 16 + 50 * rbeta(10000, 2, 3)
+    grouped_ages <- cut(ages, seq.int(16, 66, 10))
+    head(grouped_ages)
+table(grouped_ages)
+    ## grouped_ages
+    ## (16,26] (26,36] (36,46] (46,56] (56,66]
+    ##    1844    3339    3017    1533     267
+
+#n - number of factor levels, k - times repeat, r - length
+gl(3, 1, 6, labels = c("placebo", "drug A", "drug B")) #alternating ## [1] placebo drug A drug B placebo drug A drug B
+    ## Levels: placebo drug A drug B
+
+treatment <- gl(3, 2, labels = c("placebo", "drug A", "drug B"))
+    gender <- gl(2, 1, 6, labels = c("female", "male"))
+    interaction(treatment, gender)
+
+## [1] placebo.female placebo.male   drug A.female  drug A.male
+    ## [5] drug B.female  drug B.male
+    ## 6 Levels: placebo.female drug A.female drug B.female ... drug B.male
+
+
+ifelse(rbinom(10, 1, 0.5), "Head", "Tail")  # behaves like ternary operator
+
+Switch case
+(greek <- switch(
+      "delta",
+      alpha = 1,
+      beta  = sqrt(4),
+      gamma =
+{
+a <- sin(pi / 3) 4*a^2
+},
+4
+))
+
+switch( 3,
+      "first",
+      "second",
+      "third",
+      "fourth"
+)
+
+for(i in 1:5) message("i = ", i)
+
+
+
+
+
