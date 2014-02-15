@@ -57,3 +57,20 @@ treatment <- (gl(3, 1, 6, labels = c("placebo", "drug A", "drug B")))
 gender <- gl(2, 1, 6, labels = c("female", "male"))
 print(interaction(treatment, gender))         #interaction not intersaction
 
+library(lubridate)
+date_format_function <- stamp("A moon landing occurred on Monday 01 January 1900 at 18:00:00.")
+#Multiple formats matched: "A moon landing occurred on %A %m January %d%y at %H:%M:%OS"(1), "A moon landing occurred on %A %m January %Y at %d:%H:%M."(1), "A moon landing occurred on %A %d %B %Y at %H:%M:%S."(1)
+#Using: "A moon landing occurred on %A %d %B %Y at %H:%M:%S."
+print(duration_one_to_ten_years <- dyears(1:10))
+
+print(today() + duration_one_to_ten_years)
+print(period_one_to_ten_years <- years(1:10))
+print(today() + period_one_to_ten_years)
+
+now_lt <- as.POSIXlt(now())
+# "2014-02-15 12:51:47 IST"
+with_tz(now_lt, tz = "America/Los_Angeles")
+# "2014-02-14 23:21:47 PST"
+
+interval_over_leap_year <- ymd("2016-02-28") %--% ymd("2016-03-01")
+print(ymd("2016-02-29") %within% interval_over_leap_year)
